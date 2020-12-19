@@ -24,7 +24,6 @@
                 <li>Oscar Contreras - oscarcontrerasnavas@gmail.com</li>
             </ul>
         </div>
-
     </footer>
 </template>
 

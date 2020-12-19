@@ -1,6 +1,8 @@
 <template>
   <div class="landing">
+
     <the-menu></the-menu>
+
     <h2 id="us" class="my-3">Nosotros</h2>
     <the-carousel></the-carousel>
 
