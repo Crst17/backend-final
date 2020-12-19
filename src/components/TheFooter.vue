@@ -10,8 +10,8 @@
             <div class="flex-item12">
                 <p>
                     Visita nuestro GitHub:<br>
-                    <a class="git" href="https://github.com/oscarcontrerasnavas/semana-1-10.git">Repositorio Front End</a><br>
-                    <a class="git" href="https://github.com/oscarcontrerasnavas/semana-1-10.git">Repositorio Back End</a>
+                    <a class="git" href="https://github.com/Crst17/frontend-final">Repositorio Front End</a><br>
+                    <a class="git" href="https://github.com/oscarcontrerasnavas/semana-4-10">Repositorio Back End</a>
                 </p> 
             </div>
 
