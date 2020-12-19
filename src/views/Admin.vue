@@ -1,33 +1,35 @@
 <template>
-  <div class="home">
-    <div class="navbar navbar-expand bg-light navbar light">
-      <div class="container">
+    <div class="admin">
+        <the-menu></the-menu>
+        <div class="navbar navbar-expand bg-light navbar light">
+        <div class="container">
 
-        <button type="submit" class="btn btn-secondary ml-auto" @click.prevent="logOut">
-          Salir
-        </button>
+            <button type="submit" class="btn btn-secondary ml-auto" @click.prevent="logOut">
+            Salir
+            </button>
 
-      </div>
-    </div>
-
-    <div class="container mt-5">
-      <div class="row d-flex justify-content-center">
-        <div class="col-3">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">{{ user.name | capitalize }}</h5>
-              <p class="card-text">Email: {{user.email}}</p>
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
+        </div>
 
-  </div>
+        <div class="container mt-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">{{ user.name | capitalize }}</h5>
+                <p class="card-text">Email: {{user.email}}</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
 </template>
 
 <script>
+import TheMenu from '../components/TheMenu.vue';
 export default {
+  components: { TheMenu },
   data() {
     return {
       user: {}
