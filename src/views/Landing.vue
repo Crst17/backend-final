@@ -11,19 +11,22 @@
       <the-article
       name="Service Management" 
       description="El sistema Service Management es un robusto software que incorpora las funcionalidades de un ITSM y surge como el siguiente paso evolutivo de un Service Desk."  
-      image="Articulo1.jpg">
+      image="Articulo1.jpg"
+      option="1">
       </the-article>
 
       <the-article 
       name="Aplicativo PQRS" 
       description="Aplicativo para la gestión inteligente de Peticiones, Quejas, Reclamos y Solicitudes PQRS; diseñado para lograr atender con oportunidad y calidad las solicitudes ingresadas por diferentes canales, mantener trazabilidad e identificar puntos débiles para una toma de decisiones asertiva."  
-      image="Articulo2.jpg">
+      image="Articulo2.jpg"
+      option="2">
       </the-article> 
 
       <the-article
       name="ChatBot" 
       description="Robots desarrollados dentro de una aplicación de mensajes con el principio de automatizar la comunicación."  
-      image="Articulo3.jpg">
+      image="Articulo3.jpg"
+      option="3">
       </the-article>
     </div>
 

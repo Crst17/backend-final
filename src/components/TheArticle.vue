@@ -6,7 +6,9 @@
             <p class="card-text ">
                 {{ description }}
             </p>
-            <button type="button" class="btn btn-dark d-flex">Ver más!</button>
+            <button type="button" 
+            class="btn btn-dark d-flex"
+            @click="ViewMore">Ver más!</button>
         </div>
     </div>
 </template>
@@ -17,7 +19,24 @@ export default {
     props: {
         description: String,
         image: String,
-        name: String
+        name: String,
+        option: String
+    },
+    methods:{
+        ViewMore(){
+            switch(this.option){
+                case '1':
+                this.$router.push('/services/service1')
+                break;
+                case '2':
+                this.$router.push('/services/service2')
+                break;
+                case '3':
+                this.$router.push('/services/service3')
+                break;
+            }
+            
+        }
     }
 }
 </script>
