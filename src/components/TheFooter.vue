@@ -1,7 +1,7 @@
 <template>
     <footer class="flex-container10">
         <div class="flex-item10">
-            <p id="Frase"></p>
+            <p id="Frase">
                 "La Tecnología no es nada. Lo importante es que tengas fe en la gente, 
                 que sean básicamente buenas e inteligentes, y si les das herramientas, 
                 harán cosas maravillosas con ellas". <br> Steve Jobs
@@ -10,8 +10,8 @@
             <div class="flex-item12">
                 <p>
                     Visita nuestro GitHub:<br>
-                    <a class="git" href="https://github.com/Crst17/frontend-final">Repositorio Front End</a><br>
-                    <a class="git" href="https://github.com/oscarcontrerasnavas/semana-4-10">Repositorio Back End</a>
+                    <a class="git" href="https://github.com/oscarcontrerasnavas/semana-1-10.git">Repositorio Front End</a><br>
+                    <a class="git" href="https://github.com/oscarcontrerasnavas/semana-1-10.git">Repositorio Back End</a>
                 </p> 
             </div>
 
