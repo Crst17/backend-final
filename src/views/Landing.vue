@@ -1,61 +1,67 @@
 <template>
   <div class="landing">
-
+    <!-- Nav -->
     <the-menu></the-menu>
-    
+
+    <!-- Nosotros -->
     <h2 id="us" class="my-3">Nosotros</h2>
     <the-carousel></the-carousel>
+    <div class="col-10 d-flex mx-auto mb-3">
+      <div class="col-3 mx-auto">
+        <p>Somos una compañía desarrolladora de software y herramientas digitales enfocadas a promover la comunicación asertiva entre las empresas y sus clientes, optimizando el proceso de atención a usuarios por medio de soluciones tecnológicas completas o parciales para cada empresa.</p>
+      </div>
+      <div class="col-3 mx-auto">
+        <p>
+          Nuestra misión es apoyar la consolidación de una relación cercana entre las compañías y sus clientes a través de diferentes canales de comunicación y una atención oportuna a sus quejas, reclamos y necesidades.
+        </p>
+      </div>
+      <div class="col-3 mx-auto">
+        <p>
+          Nuestras soluciones se caracterizan por su alta calidad y efectividad en el cumplimiento de su propósito, gracias a las excelentes capacidades de nuestro equipo de desarrollo quienes se enfocan en comprender las necesidades y requisitos particulares de cada situación.
+        </p>
+      </div>
+    </div>
 
+    <!-- Servicios -->
     <h2 id="services">Servicios</h2>
     <div class="d-flex flex-row justify-content-around flex-wrap mx-3 mt-3 mb-0">
       <the-article
-      name="Service Management" 
-      description="El sistema Service Management es un robusto software que incorpora las funcionalidades de un ITSM y surge como el siguiente paso evolutivo de un Service Desk."  
-      image="Articulo1.jpg"
-      option="1">
-      </the-article>
-
-      <the-article 
-      name="Aplicativo PQRS" 
-      description="Aplicativo para la gestión inteligente de Peticiones, Quejas, Reclamos y Solicitudes PQRS; diseñado para lograr atender con oportunidad y calidad las solicitudes ingresadas por diferentes canales, mantener trazabilidad e identificar puntos débiles para una toma de decisiones asertiva."  
-      image="Articulo2.jpg"
-      option="2">
-      </the-article> 
-
-      <the-article
-      name="ChatBot" 
-      description="Robots desarrollados dentro de una aplicación de mensajes con el principio de automatizar la comunicación."  
-      image="Articulo3.jpg"
-      option="3">
+      v-for="articulo in articulos" :key="articulo.id"
+      :articulo="articulo">
       </the-article>
     </div>
-
+    <button type="button" class="btn a btn-dark d-flex mx-auto mt-2 mb-4"
+    @click="pushArticles">
+    <p>CONSULTA AQUI<br>NUESTROS SERVICIOS</p>
+    </button>
     <h2 id="stories">Casos de éxito !</h2>
-    
+
+    <!-- Testimonios -->
     <div>
-      <the-story
-      name="Julio Nel"
-      imagen="Articulo3.jpg"
-      date="Marzo 2020"
-      story="Proin aliquam turpis nec mi ultricies, eget gravida diam elementum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur bibendum lectus sit amet ornare aliquam. Donec pharetra augue tellus, eu varius mi tincidunt quis. In hac habitasse platea dictumst. Nullam eget ipsum ligula. Nunc at gravida mi. Praesent maximus ultricies lacus vitae tristique.">
-      </the-story>
+      <div>
+        <the-story
+        name="Julio Nel"
+        imagen="Articulo3.jpg"
+        story="Proin aliquam turpis nec mi ultricies, eget gravida diam elementum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur bibendum lectus sit amet ornare aliquam. Donec pharetra augue tellus, eu varius mi tincidunt quis. In hac habitasse platea dictumst. Nullam eget ipsum ligula. Nunc at gravida mi. Praesent maximus ultricies lacus vitae tristique.">
+        </the-story>
+      </div>
+      <div>
+        <the-story
+        name="Oscar"
+        imagen="Articulo3.jpg"
+        story="Proin aliquam turpis nec mi ultricies, eget gravida diam elementum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur bibendum lectus sit amet ornare aliquam. Donec pharetra augue tellus, eu varius mi tincidunt quis. In hac habitasse platea dictumst. Nullam eget ipsum ligula. Nunc at gravida mi. Praesent maximus ultricies lacus vitae tristique.">
+        </the-story>
+      </div>
+      <div>
+        <the-story
+        name="William"
+        imagen="Articulo3.jpg"
+        story="Proin aliquam turpis nec mi ultricies, eget gravida diam elementum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur bibendum lectus sit amet ornare aliquam. Donec pharetra augue tellus, eu varius mi tincidunt quis. In hac habitasse platea dictumst. Nullam eget ipsum ligula. Nunc at gravida mi. Praesent maximus ultricies lacus vitae tristique.">
+        </the-story>
+      </div>
     </div>
-    <div>
-      <the-story
-      name="Oscar"
-      imagen="Articulo3.jpg"
-      date="Marzo 2020"
-      story="Proin aliquam turpis nec mi ultricies, eget gravida diam elementum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur bibendum lectus sit amet ornare aliquam. Donec pharetra augue tellus, eu varius mi tincidunt quis. In hac habitasse platea dictumst. Nullam eget ipsum ligula. Nunc at gravida mi. Praesent maximus ultricies lacus vitae tristique.">
-      </the-story>
-    </div>
-    <div>
-      <the-story
-      name="William"
-      imagen="Articulo3.jpg"
-      date="Marzo 2020"
-      story="Proin aliquam turpis nec mi ultricies, eget gravida diam elementum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur bibendum lectus sit amet ornare aliquam. Donec pharetra augue tellus, eu varius mi tincidunt quis. In hac habitasse platea dictumst. Nullam eget ipsum ligula. Nunc at gravida mi. Praesent maximus ultricies lacus vitae tristique.">
-      </the-story>
-    </div>
+
+    <!-- Footer -->
     <the-footer></the-footer>
   </div>
 </template>
@@ -79,28 +85,49 @@ export default {
     TheStory,
     TheFooter
   },
- 
-  
+  data(){
+    return {
+      articulos: null,
+    }
+  },
+  methods: {
+    async getArticles(){
+      try {
+        let res = await this.$http.get('/api/articulo/list');
+        console.log(res.data);
+        this.articulos = res.data.slice(0,3)
+      } catch (error) {
+        console.log(error.res)
+      }
+    },
+    pushArticles(){
+      this.$router.push('/Articles');
+    }
+  },
+  created(){
+  this.getArticles();
+  },
 }
 </script>
 
 <style>
-
 body {
-  --width: 90%;
   --bg-color: #212529;
   background: lightgray;
-  border-right: solid var(--bg-color) 2px;
-  border-left: solid var(--bg-color) 2px;
   margin: 0 auto;
-  width: var(--width);
   padding-top: 70px;
 }
 p {
   margin: 0px;
+  margin: 0 auto;
 }
 h2{
   text-align: center;
 }
+.a{
+  height: 80px;
+  width: 300px;
+}
+
 
 </style>

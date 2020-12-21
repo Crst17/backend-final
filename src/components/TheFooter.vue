@@ -1,6 +1,6 @@
 <template>
     <footer class="flex-container10">
-        <div class="flex-item10">
+        <div class="flex-item10 mx-auto">
             <p id="Frase">
                 "La Tecnología no es nada. Lo importante es que tengas fe en la gente, 
                 que sean básicamente buenas e inteligentes, y si les das herramientas, 
@@ -36,6 +36,7 @@
     flex-wrap: wrap;
     text-align: center;
     width: 100%;
+    margin: 0 auto;
     }
 
     .flex-item10{

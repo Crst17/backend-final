@@ -6,13 +6,10 @@
 
 <style>
 body {
-  --width: 90%;
   --bg-color: #212529;
   background: lightgray;
-  border-right: solid var(--bg-color) 2px;
-  border-left: solid var(--bg-color) 2px;
   margin: 0 auto;
-  width: var(--width);
   padding-top: 70px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 </style>
