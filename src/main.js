@@ -8,7 +8,8 @@ const base = axios.create({
   //baseURL: 'https://glacial-everglades-74306.herokuapp.com'
   //baseURL: 'http://localhost:3000/'
   //Remote heroku server
-  baseURL: 'https://thawing-mesa-24274.herokuapp.com/'
+  // baseURL: 'https://thawing-mesa-24274.herokuapp.com/'
+  baseURL: 'http://localhost:3000'
 })
 Vue.prototype.$http = base;
 

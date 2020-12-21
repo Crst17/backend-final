@@ -47,9 +47,9 @@ export default {
   methods: {
       async loginUser() {
           try {
-              let res = await this.$http.post('/api/auth/signin', this.form);
+              let res = await this.$http.post('/api/usuario/login', this.form);
               console.log(res.data);
-              let token = res.data.accessToken;
+              let token = res.data.tokenReturn;
               let user = res.data.user;
               localStorage.setItem('jwt', token);
               localStorage.setItem('user', JSON.stringify(user));

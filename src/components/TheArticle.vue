@@ -1,12 +1,9 @@
 <template>
-    <div class="card mx-3 mb-3 " style="width: 19rem">
-        <img class="card-img-top" :src="require(`@/assets/${image}`)" alt="Card image cap" />
+    <div class="card mx-3 mb-3 shadow" style="width: 20rem">
+        <img class="card-img-top" :src="articulo.imagen" alt="Card image cap" />
         <div class="card-body pb-5 px-3">
-            <h5 class="card-title text-center"> {{ name }} </h5>
-            <p class="card-text ">
-                {{ description }}
-            </p>
-            <button type="button" class="btn btn-dark d-flex">Ver más!</button>
+            <h5 class="card-title text-center"> {{ articulo.nombre }} </h5>
+            <p class="card-text "> {{ articulo.descripcion}} </p>
         </div>
     </div>
 </template>
@@ -15,9 +12,7 @@
 export default {
     name: 'TheArticle',
     props: {
-        description: String,
-        image: String,
-        name: String
+        articulo: Object
     }
 }
 </script>
@@ -25,7 +20,6 @@ export default {
 <style scoped>
     .card{
         background: lightgray;
-        border: solid 2px var(--bg-color)
     }
     .btn{
         position: absolute;

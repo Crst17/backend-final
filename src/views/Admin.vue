@@ -10,13 +10,12 @@
 
         </div>
         </div>
-
         <div class="container mt-5">
         <div class="row d-flex justify-content-center">
             <div class="col-3">
             <div class="card">
                 <div class="card-body">
-                <h5 class="card-title">{{ user.name | capitalize }}</h5>
+                <h5 class="card-title">{{ user.nombre | capitalize }}</h5>
                 <p class="card-text">Email: {{user.email}}</p>
                 </div>
             </div>
@@ -39,7 +38,7 @@ export default {
     logOut() {
       localStorage.removeItem('jwt');
       localStorage.removeItem('user');
-      this.$router.push('/login');
+      this.$router.push('/');
     },
     getUserDetails() {
       let user = localStorage.getItem('user');

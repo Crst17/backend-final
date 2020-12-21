@@ -43,8 +43,5 @@ export default {
 </script>
 
 <style scoped>
-    nav {
-        width: var(--width);
-    }
 </style>
 
