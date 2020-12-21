@@ -1,11 +1,9 @@
 <template>
-<div>
-    <the-menu></the-menu>
-
+<div class="service1">
+    <the-menu2></the-menu2>
     <the-details
-    name="Service Management"
-    description="El sistema Service Management es un robusto software que incorpora las funcionalidades de un ITSM y surge como el siguiente paso evolutivo de un Service Desk."  
-    image="Articulo1.jpg">
+    :info="article">
+    
     </the-details>
     <h2>¿Qué es ITSM?</h2>
     <p>
@@ -20,19 +18,77 @@
         <li>Profundiza en los informes de satisfacción de los clientes para comprenderlos mejor y mejorar el servicio con una sencilla herramienta integrada para recopilar los comentarios.</li>
         <li>Supervisa y optimiza el trabajo del equipo con impecables tableros e informes.</li>
         <li>Consigue un contexto completo de las necesidades del cliente con incidencias vinculadas y activos de Insight asociados.</li>  
-    
+
+        
     </ul>
+    <br/>
+    <span>¡COMPRA AHORA, ESTAMOS EN OFERTA!</span>
+    <!--listados de precios-->
+     <div class="d-flex flex-row justify-content-around flex-wrap mx-3 mt-3 mb-0">
+      <the-pricing
+      name="Service Management" 
+      description="Soporte 24/7"  
+      priceA="129.99"
+      priceB="79.99">
+      </the-pricing>
+       
+      <the-pricing 
+      name="Aplicativo PQRS" 
+      description="Soporte 24/7"  
+      priceA="99.99"
+      priceB="59.99">
+      </the-pricing> 
+
+      <the-pricing
+      name="ChatBot" 
+      description="Soporte 24/7" 
+     priceA="109.99"
+     priceB="69.99">
+      </the-pricing>
+    </div>
+    <br/><br/>
+    <the-footer></the-footer>
     
 </div>
 </template>
 <script>
-import TheMenu from '../../components/TheMenu.vue'
+import TheMenu2 from '../../components/TheMenu2.vue'
 import TheDetails from '../../components/TheDetails.vue'
+import ThePricing from '../../components/ThePricing.vue'
+import TheFooter from '../../components/TheFooter.vue'
 export default{
+    name: 'Service 1',
     components:{
-        TheMenu,
-        TheDetails
+        TheMenu2,
+        TheDetails,
+        ThePricing,
+        TheFooter
+    },
+    data(){
+        return{
+            article:{}
+        }
+    },
+    methods:{
+        async getArticle() {
+          try {
+              let article = await this.$http.get('api/articulo/query/1?articleId');
+              this.article=article.data;
+               console.log(this.article.nombre)
+               
+               
+          } catch (err) {
+              swal("Error", "No se pudo conectar con servicios", "error");
+              console.log(err.res)
+          }
+      }
+    },
+    created(){
+        this.getArticle();
     }
+        
+    
+   
 }
 </script>
 <style scoped>
@@ -56,4 +112,14 @@ export default{
     h2:hover{
         color:#FFFFFF;
     }
+    span{
+        display:block;
+        font-size:30pt;
+        text-align:center;
+
+    }
+    span:hover{
+        color:#FFFFFF;
+    }
+   
 </style>

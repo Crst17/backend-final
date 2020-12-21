@@ -1,11 +1,10 @@
 <template>
-<div>
-    <the-menu></the-menu>
-    <the-details
-     name="Aplicativo PQRS" 
-      description="Aplicativo para la gestión inteligente de Peticiones, Quejas, Reclamos y Solicitudes PQRS; diseñado para lograr atender con oportunidad y calidad las solicitudes ingresadas por diferentes canales, mantener trazabilidad e identificar puntos débiles para una toma de decisiones asertiva."  
-      image="Articulo2.jpg"
-     >
+<div class="service2">
+    <the-menu2></the-menu2>
+   <the-details
+    :info="article">
+    
+    </the-details>
     </the-details>
     <p>
         Una herramienta clave para la evaluación constante de sus procesos y la mejora continua, permite de tener un mayor control sobre las peticiones, quejas, reclamos y solicitudes dado el rastreo y control de tiempos de respuesta que el software permite hacer a cada una de estas, de igual forma permite la integración de todas las peticiones, quejas y reclamos que ingresan por los diferentes medios de recepción, ya sea por medio del sitio web, las redes sociales, correo electrónico o las que son entregadas físicamente.
@@ -31,15 +30,69 @@
         <li>Información oportuna sobre el estado de cada PQRS registrada.</li>
         <li>Fidelidad y buen trato a sus clientes con una plataforma intuitiva.</li>
     </ul>
+     <br/>
+    <span>¡COMPRA AHORA, ESTAMOS EN OFERTA!</span>
+    <!--listados de precios-->
+     <div class="d-flex flex-row justify-content-around flex-wrap mx-3 mt-3 mb-0">
+      <the-pricing
+      name="Service Management" 
+      description="Soporte 24/7"  
+      priceA="129.99"
+      priceB="79.99">
+      </the-pricing>
+
+      <the-pricing 
+      name="Aplicativo PQRS" 
+      description="Soporte 24/7"  
+      priceA="99.99"
+      priceB="59.99">
+      </the-pricing> 
+
+      <the-pricing
+      name="ChatBot" 
+      description="Soporte 24/7" 
+     priceA="109.99"
+     priceB="69.99">
+      </the-pricing>
+    </div>
+    <br/><br/>
+    <the-footer></the-footer>
 </div>
 </template>
 <script>
-import TheMenu from '../../components/TheMenu.vue'
+import TheMenu2 from '../../components/TheMenu2.vue'
 import TheDetails from '../../components/TheDetails.vue'
+import ThePricing from '../../components/ThePricing.vue'
+import TheFooter from '../../components/TheFooter.vue'
 export default{
+     name: 'Service 2',
     components:{
-        TheMenu,
-        TheDetails
+        TheMenu2,
+        TheDetails,
+        ThePricing,
+        TheFooter
+    },
+    data(){
+        return{
+            article:{}
+        }
+    },
+    methods:{
+        async getArticle() {
+          try {
+              let article = await this.$http.get('api/articulo/query/2?articleId');
+              this.article=article.data;
+               console.log(this.article.nombre)
+               
+               
+          } catch (err) {
+               swal("Error", "No se pudo conectar con servicios", "error");
+              console.log(err.res)
+          }
+      }
+    },
+    created(){
+        this.getArticle();
     }
 }
 </script>
@@ -62,6 +115,15 @@ p{
         font-size:30pt;
     }
     h2:hover{
+        color:#FFFFFF;
+    }
+    span{
+        display:block;
+        font-size:30pt;
+        text-align:center;
+
+    }
+     span:hover{
         color:#FFFFFF;
     }
 </style>

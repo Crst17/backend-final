@@ -78,7 +78,9 @@ export default {
     TheArticle,
     TheStory,
     TheFooter
-  }
+  },
+ 
+  
 }
 </script>
 

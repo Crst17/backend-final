@@ -1,15 +1,13 @@
 <template>
     <div >
-        <h2 align=center>{{name}}</h2>
-        <img :src="require(`@/assets/${image}`)" height=400px width=700px alt="Card image cap" />
-        <div>
+        <h2 align=center>{{info.nombre}}</h2>
+        <img :src="info.imagen" height=400px width=700px alt="Imagen del servicio" />
+        
+        <p >
+            {{ info.descripcion }}
             
-            <p >
-                {{ description }}
-            </p>
-         
-           
-        </div>
+        </p>
+        
     </div>
 </template>
 
@@ -17,13 +15,8 @@
 export default {
     name: 'TheDetails',
     props: {
-        description: String,
-        image: String,
-        name: String,
+        info: Object
     }
-  
-
-    
     }
     
 
