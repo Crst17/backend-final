@@ -4,7 +4,6 @@
     <the-menu></the-menu>
 
     <!-- Nosotros -->
-
     <h2 id="us" class="my-3">Nosotros</h2>
     <the-carousel></the-carousel>
     <div class="col-10 d-flex mx-auto mb-3">
@@ -104,7 +103,6 @@ export default {
     pushArticles(){
       this.$router.push('/Articles');
     }
-
   },
   created(){
   this.getArticles();
