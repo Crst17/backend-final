@@ -2,6 +2,8 @@
 
 <div class="service3">
     <the-menu2></the-menu2>
+    <div class="mx-auto col-10">
+
     <the-details
     :info="article">
     </the-details>
@@ -60,6 +62,7 @@
       </the-pricing>
     </div>
     <br/><br/>
+    </div>
     <the-footer></the-footer>
 </div>
 </template>
@@ -82,8 +85,8 @@ export default{
     },
     methods:{
         async getArticle() {
-          try {
-              let article = await this.$http.get('api/articulo/query/3?articleId');
+            try {
+                let article = await this.$http.get('api/articulo/query/3?articleId');
               this.article=article.data;
                console.log(this.article.nombre)
                
@@ -125,16 +128,10 @@ export default{
         margin:30px;
         font-size:30pt;
     }
-    h2:hover{
-        color:#FFFFFF;
-    }
     span{
         display:block;
         font-size:30pt;
         text-align:center;
 
-    }
-     span:hover{
-        color:#FFFFFF;
     }
 </style>

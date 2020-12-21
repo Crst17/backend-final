@@ -1,10 +1,10 @@
 <template>
 <div class="service2">
     <the-menu2></the-menu2>
+    <div class="mx-auto col-10">
+
    <the-details
     :info="article">
-    
-    </the-details>
     </the-details>
     <p>
         Una herramienta clave para la evaluación constante de sus procesos y la mejora continua, permite de tener un mayor control sobre las peticiones, quejas, reclamos y solicitudes dado el rastreo y control de tiempos de respuesta que el software permite hacer a cada una de estas, de igual forma permite la integración de todas las peticiones, quejas y reclamos que ingresan por los diferentes medios de recepción, ya sea por medio del sitio web, las redes sociales, correo electrónico o las que son entregadas físicamente.
@@ -56,6 +56,7 @@
       </the-pricing>
     </div>
     <br/><br/>
+    </div>
     <the-footer></the-footer>
 </div>
 </template>
@@ -65,7 +66,7 @@ import TheDetails from '../../components/TheDetails.vue'
 import ThePricing from '../../components/ThePricing.vue'
 import TheFooter from '../../components/TheFooter.vue'
 export default{
-     name: 'Service 2',
+    name: 'Service 2',
     components:{
         TheMenu2,
         TheDetails,
@@ -114,16 +115,11 @@ p{
         margin:30px;
         font-size:30pt;
     }
-    h2:hover{
-        color:#FFFFFF;
-    }
     span{
         display:block;
         font-size:30pt;
         text-align:center;
 
     }
-     span:hover{
-        color:#FFFFFF;
-    }
+
 </style>

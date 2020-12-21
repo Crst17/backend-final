@@ -47,9 +47,6 @@ export default {
         box-shadow: 2px 3px 2px 3px #111111;
         
     }
-    .card:hover{
-        opacity:0.8;
-    }
     .btn{
         position: absolute;
         bottom: 10px;

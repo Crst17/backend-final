@@ -1,5 +1,7 @@
 <template>
 <div class="service1">
+    <div class="col-10 mx-auto">
+
     <the-menu2></the-menu2>
     <the-details
     :info="article">
@@ -47,6 +49,7 @@
       </the-pricing>
     </div>
     <br/><br/>
+    </div>
     <the-footer></the-footer>
     
 </div>
@@ -109,17 +112,9 @@ export default{
         margin:30px;
         font-size:30pt;
     }
-    h2:hover{
-        color:#FFFFFF;
-    }
     span{
         display:block;
         font-size:30pt;
         text-align:center;
-
-    }
-    span:hover{
-        color:#FFFFFF;
-    }
-   
+    }  
 </style>

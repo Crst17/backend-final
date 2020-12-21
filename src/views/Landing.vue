@@ -34,9 +34,9 @@
     @click="pushArticles">
     <p>CONSULTA AQUI<br>NUESTROS SERVICIOS</p>
     </button>
-    <h2 id="stories">Casos de éxito !</h2>
-
+    
     <!-- Testimonios -->
+    <h2 id="stories">Casos de éxito !</h2>
     <div>
       <div>
         <the-story

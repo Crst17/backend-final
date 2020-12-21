@@ -18,26 +18,22 @@
 export default {
     name: 'TheArticle',
     props: {
-        articulo: Object
-        description: String,
-        image: String,
-        name: String,
+        articulo: Object,
         option: String
     },
     methods:{
         ViewMore(){
-            switch(this.option){
-                case '1':
+            switch(this.articulo.id){
+                case 1:
                 this.$router.push('/services/service1')
                 break;
-                case '2':
+                case 2:
                 this.$router.push('/services/service2')
                 break;
-                case '3':
+                case 3:
                 this.$router.push('/services/service3')
                 break;
             }
-            
         }
     }
 }

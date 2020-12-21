@@ -32,10 +32,6 @@ export default {
        box-shadow: 10px 10px 10px #111111;
        border-radius: 25px;
    }
-   img:hover{
-       border-radius: 70px;
-       opacity:0.9;
-   }
    p{
        font-size:16pt;
        margin-top:35px;
@@ -47,10 +43,5 @@ export default {
    h2{
        padding:20px;
        font-size:40pt;
-   }
-   h2:hover{
-        color:#FFFFFF;
-    }
-   
-    
+   }  
 </style>
