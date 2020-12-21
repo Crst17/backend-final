@@ -105,23 +105,33 @@ export default {
           id: this.record.id,
           nombre: this.record.nombre,
           descripcion: this.record.descripcion,
-        });
+        },
+        {
+          headers: {
+            token: localStorage.jwt
+          }
+        }
+        );
         swal(
           "El item ha sido actualizado",
           "Este item ha sido actualizdo con éxito.",
           "success"
         );
         this.record = response.data;
-      } catch (error) {
-        swal("Algo ha salido mal", error, "error");
+      } catch (e) {
+        swal("Algo ha salido mal", e.response.data.message, "error");
       }
     },
 
     async toggleActivate() {
       try {
         let url = !this.record.estado ? "activate" : "deactivate";
-        let response = await this.$http.put(`/api/categoria/${url}`, {
+        let response = await this.$http.put(`/api/categoria/${url}`, { // axios.put(url, data, options)
           id: this.record.id,
+        }, {
+          headers: {
+            token: localStorage.jwt
+          }
         });
         swal(
           "El item ha sido actualizado",
@@ -129,8 +139,8 @@ export default {
           "success"
         );
         this.record = response.data;
-      } catch (error) {
-        swal("Algo ha salido mal", error, "error");
+      } catch (e) {
+        swal("Algo ha salido mal", e.response.data.message, "error");
       }
     },
 
@@ -144,7 +154,12 @@ export default {
       })
       .then(willDetele => {
         if (willDetele) {
-          this.$http.delete('/api/categoria/remove', { data: { id: this.record.id} })
+          this.$http.delete('/api/categoria/remove', 
+            { 
+              data: { id: this.record.id},
+              headers: {token: localStorage.toString}
+            }
+          )
           .then(res => {
             swal(
                 "El item ha sido actualizado",
@@ -153,10 +168,13 @@ export default {
               );
             this.$router.push({name:'adminCategoriaList'});
           })
+          .catch(e => {
+            swal("Algo ha salido mal", e.response.data.message, "error");
+          })
         }
       })
       .catch(e => {
-        swal("Algo ha salido mal", error, "error");
+        swal("Algo ha salido mal", e.response.data.message, "error");
       })
     },
   },

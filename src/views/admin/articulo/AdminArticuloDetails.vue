@@ -107,14 +107,7 @@ import swal from "sweetalert";
 export default {
   data: function() {
     return {
-      record: {
-        id: '',
-        nombre: '',
-        categoriaId: '',
-        descripcion: '',
-        estado: '',
-        imagen: ''
-      },
+      record: {}
     };
   },
 
@@ -148,6 +141,9 @@ export default {
           categoriaId: this.record.categoriaId,
           descripcion: this.record.descripcion,
           imagen: this.record.imagen
+        },
+        {
+          headers: {token: localStorage.jwt}
         });
         swal(
           "El item ha sido actualizado",
@@ -155,8 +151,8 @@ export default {
           "success"
         );
         this.record = response.data;
-      } catch (error) {
-        swal("Algo ha salido mal", error, "error");
+      } catch (e) {
+        swal("Algo ha salido mal", e.response.data.message, "error");
       }
     },
 
@@ -165,6 +161,9 @@ export default {
         let url = !this.record.estado ? "activate" : "deactivate";
         let response = await this.$http.put(`/api/articulo/${url}`, {
           id: this.record.id,
+        },
+        {
+          headers: {token: localStorage.jwt}
         });
         swal(
           "El item ha sido actualizado",
@@ -172,8 +171,8 @@ export default {
           "success"
         );
         this.record = response.data;
-      } catch (error) {
-        swal("Algo ha salido mal", error, "error");
+      } catch (e) {
+        swal("Algo ha salido mal", e.response.data.message, "error");
       }
     },
 
@@ -188,7 +187,10 @@ export default {
         .then((willDetele) => {
           if (willDetele) {
             this.$http
-              .delete("/api/articulo/remove", { data: { id: this.record.id } })
+              .delete("/api/articulo/remove", { 
+                data: { id: this.record.id },
+                headers: {token: localStorage.jwt}
+              })
               .then((res) => {
                 swal(
                   "El item ha sido actualizado",
@@ -196,11 +198,13 @@ export default {
                   "success"
                 );
                 this.$router.push({ name: "adminArticuloList" });
-              });
+              }).catch(e => {
+                swal("Algo ha salido mal", e.response.data.message, "error");
+              })
           }
         })
         .catch((e) => {
-          swal("Algo ha salido mal", error, "error");
+          swal("Algo ha salido mal", e.response.data.message, "error");
         });
     },
   },

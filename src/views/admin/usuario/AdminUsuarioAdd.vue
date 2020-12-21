@@ -55,7 +55,6 @@
           id="estado"
           class="form-control shadow-sm"
           v-model="record.estado"
-          disabled
         />
       </div>
 
@@ -93,6 +92,9 @@ export default {
           password: this.record.password,
           email: this.record.email,
           rol: this.record.rol ? this.record.rol : "Vendedor",
+        },
+        {
+          headers: {token: localStorage.jwt}
         });
         swal(
           "El item ha sido actualizado",
@@ -101,8 +103,8 @@ export default {
         );
         this.record = response.data;
         this.$router.push({name: 'adminUsuarioDetails', params: {id: this.record.id}})
-      } catch (error) {
-        swal("Algo ha salido mal", error.message , "error");
+      } catch (e) {
+        swal("Algo ha salido mal", e.response.data.message , "error");
       }
     }
   }

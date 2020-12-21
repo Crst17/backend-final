@@ -26,6 +26,18 @@
       </div>
 
       <div class="mb-4">
+        <label for="password">Nueva contraseña:</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          class="form-control shadow-sm"
+          v-model="password"
+        />
+      </div>
+
+
+      <div class="mb-4">
         <label for="rol">Rol:</label>
         <input
           type="text"
@@ -90,7 +102,8 @@ import swal from "sweetalert";
 export default {
   data() {
     return {
-      record: {}
+      record: {},
+      password: ''
     };
   },
 
@@ -98,21 +111,27 @@ export default {
     async getRecord() {
       try {
         let id = this.$route.params.id;
-        let response = await this.$http.get(`/api/usuario/query/${id}`);
+        let response = await this.$http.get(`/api/usuario/query/${id}`,{
+          headers: {token: localStorage.jwt}
+        });
         this.record = response.data;
-      } catch (error) {
-        console.error(error);
+      } catch (e) {
+        swal("Algo ha ocurrido", e.response.data.message, "error");
+        this.$router.push({name:'adminUsuarioList'});
       }
     },
 
-    async save() {
+    save: async function() {
       try {
         let response = await this.$http.put("/api/usuario/update", {
           id: this.record.id,
           nombre: this.record.nombre,
-          password: this.record.password,
+          password: this.password != '' ? this.password : this.record.password,
           email: this.record.email,
           rol: this.record.rol,
+        },
+        {
+          headers: {token: localStorage.jwt}
         });
         swal(
           "El item ha sido actualizado",
@@ -120,8 +139,8 @@ export default {
           "success"
         );
         this.record = response.data;
-      } catch (error) {
-        swal("Algo ha salido mal", error, "error");
+      } catch (e) {
+        swal("Algo ha salido mal", e.response.data.message, "error");
       }
     },
 
@@ -130,6 +149,9 @@ export default {
         let url = !this.record.estado ? "activate" : "deactivate";
         let response = await this.$http.put(`/api/usuario/${url}`, {
           id: this.record.id,
+        },
+        {
+          headers: {token: localStorage.jwt}
         });
         swal(
           "El item ha sido actualizado",
@@ -137,8 +159,8 @@ export default {
           "success"
         );
         this.record = response.data;
-      } catch (error) {
-        swal("Algo ha salido mal", error, "error");
+      } catch (e) {
+        swal("Algo ha salido mal", e.response.data.message, "error");
       }
     },
 
@@ -152,7 +174,10 @@ export default {
       })
       .then(willDetele => {
         if (willDetele) {
-          this.$http.delete('/api/usuario/remove', { data: { id: this.record.id} })
+          this.$http.delete('/api/usuario/remove', { 
+            data: { id: this.record.id},
+            headers: {token: localStorage.jwt} 
+          })
           .then(res => {
             swal(
                 "El item ha sido actualizado",
@@ -161,10 +186,13 @@ export default {
               );
             this.$router.push({name:'adminUsuarioList'});
           })
+          .catch(e => {
+            swal("Algo ha salido mal", e.response.data.message, "error");
+          });
         }
       })
       .catch(e => {
-        swal("Algo ha salido mal", error, "error");
+        swal("Algo ha salido mal", e.response.data.message, "error");
       })
     },
   },
