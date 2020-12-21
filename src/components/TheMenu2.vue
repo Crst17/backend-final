@@ -18,18 +18,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                
-                <li class="nav-item">
-                    <a class="nav-link" href="#us">Nosotros</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#services">Servicios</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#stories">Casos de éxito</a>
-                </li>
-            </ul>
+           <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
             <button class="btn btn-outline-light" 
             type="button"
             @click="logIn"
@@ -43,7 +32,7 @@ export default {
     name: "TheMenu",
     methods:{
         logIn() {
-            this.$router.push('/login');
+            this.$router.push('/Login');
         },
         mainPage(){
             this.$router.push('/');
@@ -53,5 +42,7 @@ export default {
 </script>
 
 <style scoped>
+    nav {
+        width: var(--width);
+    }
 </style>
-

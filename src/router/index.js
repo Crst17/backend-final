@@ -6,6 +6,7 @@ import AdminUsuarioList from '@/views/admin/usuario/AdminUsuarioList'
 
 Vue.use(VueRouter)
 
+
 const routes = [
   {
     path: '/',
@@ -15,10 +16,9 @@ const routes = [
 
   {
     path: '/login',
-    name: 'Login',
+    name: 'login',
     component: () => import(/* webpackChunkName: "login" */ '../views/Login.vue')
   },
-
   {
     path: '/admin',
     component: () => import(/* webpackChunkName: "admin" */ '../views/Admin.vue'),
@@ -77,14 +77,38 @@ const routes = [
         component: () => import(/* webpackChunkName: "adminCategoriaDetails" */ '../views/admin/usuario/AdminUsuarioDetails.vue'),
       },
     ]
+  },
+  {
+    path: '/articles',
+    name: 'Articles',
+    component: () => import(/* webpackChunkName: "articles" */ '../views/Articles.vue')
+  }, 
+  {
+        path: '/services/service1',
+        name: 'Service1',
+        component: () =>
+            import ( /* webpackChunkName: "service1" */ '../views/services/Service1.vue')
+  }, 
+  {
+        path: '/services/service2',
+        name: 'Service2',
+        component: () =>
+            import ( /* webpackChunkName: "service2" */ '../views/services/Service2.vue')
+  }, 
+  {
+        path: '/services/service3',
+        name: 'Service3',
+        component: () =>
+            import ( /* webpackChunkName: "service1" */ '../views/services/Service3.vue')
   }
+
 ]
 
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes
 })
 
 router.beforeEach((to, from, next) => {
