@@ -1,5 +1,5 @@
 <template>
-    <footer class="flex-container10">
+    <footer class="flex-container10 bg-dark">
         <div class="flex-item10 mx-auto">
             <p id="Frase">
                 "La Tecnología no es nada. Lo importante es que tengas fe en la gente, 

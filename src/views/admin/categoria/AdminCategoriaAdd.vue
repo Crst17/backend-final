@@ -33,6 +33,7 @@
           id="estado"
           class="form-control shadow-sm"
           v-model="record.estado"
+          disabled
         />
       </div>
 
@@ -40,7 +41,7 @@
         <button class="btn btn-primary" @click.prevent="save">Guardar</button>
         <router-link
           class="btn btn-secondary ms-3"
-          :to="{ name: 'adminCategoria' }"
+          :to="{ name: 'adminCategoriaList' }"
         >
           Cancelar
         </router-link>
@@ -52,29 +53,32 @@
 <script>
 import swal from 'sweetalert';
 export default {
-  data() {
+  data: function() {
     return {
       record: {
         nombre: '',
         descripcion: '',
-        estado: '',
+        estado: 0,
       },
     };
   },
 
   methods: {
-    async save() {
+    save: async function() {
       this.$http.post("/api/categoria/add", {
           nombre: this.record.nombre,
           descripcion: this.record.descripcion,
-          estado: this.record.estado,
+          estado: 0,
+      },
+      {
+        headers: {token: localStorage.jwt}
       })
       .then( reg => {
         swal("Guardado!", "Este item ha sido guardado con éxito.", "success");
         this.$router.push({name: 'adminCategoriaDetails', params: {id: reg.data.id}});
       })
       .catch(e => {
-        console.error(e)
+        swal("Algo ha salido mal", e.response.data.message, "error");
       })
     }
   }

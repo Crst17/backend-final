@@ -1,6 +1,7 @@
 <template>
   <div class="container-fluid">
-    <h2>Hola {{ user.name }}</h2>
+    <h2>Hola {{ user.nombre }}</h2>
+    <h4 class="text-secondary">Su rol es {{user.rol}}</h4>
     <p>
       Bienvenido al área de administración. Desde aquí podra modificar las
       diferentes secciones de la página púbica.

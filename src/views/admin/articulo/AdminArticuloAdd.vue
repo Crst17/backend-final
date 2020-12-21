@@ -112,7 +112,11 @@ export default {
           nombre: this.record.nombre,
           categoriaId: this.record.categoriaId,
           descripcion: this.record.descripcion,
+          estado: 0,
           imagen: this.record.imagen
+        },
+        {
+          headers: {token: localStorage.jwt}
         });
         swal(
           "El item ha sido actualizado",
@@ -121,8 +125,8 @@ export default {
         );
         this.record = res.data
         this.$router.push({name: 'adminArticuloDetails', params:{id:this.record.id}});
-      } catch (error) {
-        swal("Algo ha salido mal", error.message, "error");
+      } catch (e) {
+        swal("Algo ha salido mal", e.response.data.message, "error");
       }
     }
   }
