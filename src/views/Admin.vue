@@ -1,62 +1,96 @@
 <template>
-    <div class="admin">
-        <the-menu></the-menu>
-        <div class="navbar navbar-expand bg-light navbar light">
-        <div class="container">
+  <div id="admin">
+    <!-- Header -->
+    <header class="sticky-top">
+      <div class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+          <router-link class="navbar-brand" to="/admin">
+            Dashboard
+          </router-link>
 
-            <button type="submit" class="btn btn-secondary ml-auto" @click.prevent="logOut">
-            Salir
-            </button>
+          <button class="btn btn-outline-light" @click.prevent="logOut">Cerrar Sesión</button>
+        </div>
+      </div>
+    </header>
 
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <aside class="col bg-light pt-3">
+          <ul class="nav flex-column">
+            <!-- Link 1 -->
+            <li class="nav-item">
+              <router-link
+                class="nav-link d-flex align-items-center"
+                to="/admin"
+              >
+                <img class="me-2" src="https://img.icons8.com/material-outlined/16/0d6efd/home--v2.png"/>
+                Inicio
+              </router-link>
+            </li>
+
+            <!-- Link 2 -->
+            <li class="nav-item">
+              <router-link
+                class="nav-link d-flex align-items-center"
+                :to="{ name: 'adminCategoriaList' }"
+              >
+                <img class="me-2" src="https://img.icons8.com/material-outlined/16/0d6efd/tags.png"/>
+                Categorias
+              </router-link>
+            </li>
+
+            <!-- Link 3 -->
+            <li class="nav-item">
+              <router-link
+                class="nav-link d-flex align-items-center"
+                :to="{ name: 'adminArticuloList' }"
+              >
+                <img class="me-2" src="https://img.icons8.com/material-outlined/16/0d6efd/news.png"/>
+                Artículos
+              </router-link>
+            </li>
+
+            <!-- Link 4 -->
+            <li class="nav-item">
+              <router-link
+                class="nav-link d-flex align-items-center"
+                :to="{ name: 'adminUsuarioList' }"
+              >
+                <img class="me-2" src="https://img.icons8.com/material-outlined/16/0d6efd/user--v1.png"/>
+                Usuarios
+              </router-link>
+            </li>
+          </ul>
+        </aside>
+
+        <div id="main" class="col pt-3 pb-5">
+          <router-view></router-view>
         </div>
-        </div>
-        <div class="container mt-5">
-        <div class="row d-flex justify-content-center">
-            <div class="col-3">
-            <div class="card">
-                <div class="card-body">
-                <h5 class="card-title">{{ user.nombre | capitalize }}</h5>
-                <p class="card-text">Email: {{user.email}}</p>
-                </div>
-            </div>
-            </div>
-        </div>
-        </div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
-import TheMenu from '../components/TheMenu.vue';
 export default {
-  components: { TheMenu },
-  data() {
-    return {
-      user: {}
-    }
-  },
   methods: {
-    logOut() {
-      localStorage.removeItem('jwt');
-      localStorage.removeItem('user');
-      this.$router.push('/');
+    logOut: function() {
+      localStorage.removeItem("jwt");
+      localStorage.removeItem("user");
+      this.$router.push("/login");
     },
-    getUserDetails() {
-      let user = localStorage.getItem('user');
-      let token = localStorage.getItem('jwt');
-      if (token) {
-        this.user = JSON.parse(user);
-      }
-    }
   },
-  created() {
-    this.getUserDetails();
-  },
-  filters: {
-    capitalize: function (value) {
-      if (!value) return ''
-      value = value.toString()
-      return value.charAt(0).toUpperCase() + value.slice(1)
-    }
-  }
-}
+};
 </script>
+
+<style scoped>
+aside {
+  height: calc(100vh - 55.6px);
+  max-width: 200px;
+  position: fixed;
+}
+#main {
+  margin-left: 200px;
+}
+</style>

@@ -45,7 +45,7 @@ export default {
     };
   },
   methods: {
-      async loginUser() {
+      loginUser: async function() {
           try {
               let res = await this.$http.post('/api/usuario/login', this.form);
               console.log(res.data);
@@ -59,7 +59,7 @@ export default {
               }
           } catch (err) {
               swal("Error", "Datos incorrectos", "error");
-              console.log(err.res)
+              console.error(err);
           }
       }
   },

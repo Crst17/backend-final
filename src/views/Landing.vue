@@ -110,7 +110,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 body {
   --bg-color: #212529;
   background: lightgray;
@@ -128,6 +128,4 @@ h2{
   height: 80px;
   width: 300px;
 }
-
-
 </style>

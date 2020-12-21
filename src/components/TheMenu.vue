@@ -43,7 +43,7 @@ export default {
     name: "TheMenu",
     methods:{
         logIn() {
-            this.$router.push('/Login');
+            this.$router.push('/login');
         },
         mainPage(){
             this.$router.push('/');
