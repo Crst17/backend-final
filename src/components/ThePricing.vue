@@ -7,17 +7,17 @@
             <h2 class="alert">¡Últimos días!</h2>
             <h2 class="before">Antes USD {{priceA}}</h2>
             <h2>Ahora USD {{priceB}}</h2>
-            <p class="card-text ">
+            <div class="card-text ">
                 <p>
                 &#x2714 {{ description }}
                 </p>
                 <p>
-                &#x2714 herramienta personalizable
+                &#x2714 Herramienta personalizable
                 </p>
                 <p>
                 &#x2714 Reembolso garantizado
                 </p>
-            </p>
+            </div>
             
             <button type="button" 
             class="btn btn-dark d-flex"
