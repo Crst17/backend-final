@@ -3,7 +3,7 @@
     <div class="col-10 mx-auto">
 
     <the-menu2></the-menu2>
-    <the-details
+    <the-details 
     :info="article">
     
     </the-details>
@@ -60,7 +60,7 @@ import TheDetails from '../../components/TheDetails.vue'
 import ThePricing from '../../components/ThePricing.vue'
 import TheFooter from '../../components/TheFooter.vue'
 export default{
-    name: 'Service 1',
+    name: 'Service1',
     components:{
         TheMenu2,
         TheDetails,

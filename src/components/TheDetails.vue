@@ -43,5 +43,6 @@ export default {
    h2{
        padding:20px;
        font-size:40pt;
+       margin-top: 70px;
    }  
 </style>

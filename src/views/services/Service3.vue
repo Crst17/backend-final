@@ -72,7 +72,7 @@ import TheDetails from '../../components/TheDetails.vue'
 import ThePricing from '../../components/ThePricing.vue'
 import TheFooter from '../../components/TheFooter.vue'
 export default{
-    name: 'Service 3',
+    name: 'Service3',
     components:{
         TheMenu2,
         TheDetails,
