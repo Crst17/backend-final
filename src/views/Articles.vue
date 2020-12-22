@@ -1,5 +1,5 @@
 <template>
-    <div class="list">
+    <div class="list pt-5 mt-5">
         <the-menu></the-menu>
         <div class="d-flex flex-wrap">
             <articles-list
@@ -46,3 +46,4 @@ export default {
   },
 }
 </script>
+

@@ -14,14 +14,11 @@
     <h2>¿Qué funcionalidades tiene el sistema Service Management?</h2>
     <ul>
         <li>Muestra la asistencia a través de un portal sencillo e intuitivo que facilite a los clientes y empleados obtener ayuda rápidamente y que optimice el trabajo entrante a los equipos. </li>
-        <li>Junta las solicitudes de correo electrónico, herramientas de chat, tu centro de asistencia y otros canales. Configura las colas para seguir, evaluar y asignar las solicitudes entrantes. </li>
-        
+        <li>Junta las solicitudes de correo electrónico, herramientas de chat, tu centro de asistencia y otros canales. Configura las colas para seguir, evaluar y asignar las solicitudes entrantes. </li>        
         <li>Capacita a los empleados para buscar respuestas a preguntas comunes usando un portal de autoservicio. </li>
         <li>Profundiza en los informes de satisfacción de los clientes para comprenderlos mejor y mejorar el servicio con una sencilla herramienta integrada para recopilar los comentarios.</li>
         <li>Supervisa y optimiza el trabajo del equipo con impecables tableros e informes.</li>
         <li>Consigue un contexto completo de las necesidades del cliente con incidencias vinculadas y activos de Insight asociados.</li>  
-
-        
     </ul>
     <br/>
     <span>¡COMPRA AHORA, ESTAMOS EN OFERTA!</span>
